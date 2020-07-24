@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/clicked_image_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/clicked_image"
+        app:layout_constraintBottom_toTopOf="@id/send_attendance_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/send_attendance_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_attendance"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/get_attendance_button"
+        app:layout_constraintBottom_toTopOf="@id/location_text_view"/>
+
+    <Button
+        android:id="@+id/get_attendance_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_attendance"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toRightOf="@id/send_attendance_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clicked_image_view" />
+
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/send_attendance_button"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="4dp"
+        android:id="@+id/attendance_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/send_attendance_button"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
