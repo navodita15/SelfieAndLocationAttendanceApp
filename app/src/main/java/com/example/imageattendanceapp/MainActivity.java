@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Uri imageUri = Uri.fromFile(imgFile);
                 Log.d(TAG, "onActivityResult: image uri == " + imageUri);
                 Glide.with(this).load(imageUri).into(clickedImageView);
-                locationTextView.setText(navigationService.getAddress(latitude, longitude));
+                locationTextView.setText("Address: " + navigationService.getAddress(latitude, longitude));
                 attendanceViewModel.insert(new Attendance(imagePath, navigationService.getAddress(latitude, longitude)));
             }
         }
